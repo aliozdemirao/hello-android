@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+    private val cameraComponentNew1 = CameraComponentNew1()
+    private val cameraComponentNew2 = CameraComponentNew2()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -33,6 +36,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        lifecycle.addObserver(cameraComponentNew1)
+        lifecycle.addObserver(cameraComponentNew2)
 
     }
 
@@ -70,6 +76,9 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
 
         Log.d("ActivityLifecycle", "onDestroy")
+
+        lifecycle.removeObserver(cameraComponentNew1)
+        lifecycle.removeObserver(cameraComponentNew2)
     }
 
     override fun onRestart() {
