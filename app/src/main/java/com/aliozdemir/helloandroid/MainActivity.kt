@@ -22,6 +22,14 @@ class MainActivity : AppCompatActivity() {
         btnOpenSecondActivity.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
 
+            // 1. yol
+            intent.putExtra("key", "value")
+
+            // 2. yol
+            val bundle = Bundle()
+            bundle.putString("keyBundle", "valueBundle")
+            intent.putExtras(bundle)
+
             startActivity(intent)
             finish()
         }

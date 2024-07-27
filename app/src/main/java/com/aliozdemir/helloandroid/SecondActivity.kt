@@ -14,6 +14,14 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         Log.d("SecondActivityLifecycle", "onCreate2")
+
+
+        val param = intent.getStringExtra("key") ?: "default value"
+        Log.e("ActivityLifecycle Data", param)
+
+        val bundle = intent.extras
+        val paramBundle = bundle?.getString("keyBundle", "default value") ?: "bundle null"
+        Log.e("ActivityLifecycle Bundle Data", paramBundle)
     }
 
     override fun onContentChanged() {
