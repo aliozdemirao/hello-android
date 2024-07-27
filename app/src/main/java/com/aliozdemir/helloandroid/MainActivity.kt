@@ -135,4 +135,8 @@ class MainActivity : AppCompatActivity() {
         Log.d("ActivityLifecycle", "onUserInteraction")     // Kullanıcı UI ile etkileşime geçiyor
     }
 
+    fun someBusinessLogic(name: String?, surname: String?): String {
+        return "Hello $name $surname"
+    }
+
 }
