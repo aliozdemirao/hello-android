@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var btnOpenSettingsActivity: Button
+
     private val cameraComponentNew1 = CameraComponentNew1()
     private val cameraComponentNew2 = CameraComponentNew2()
 
@@ -39,6 +41,12 @@ class MainActivity : AppCompatActivity() {
 
         lifecycle.addObserver(cameraComponentNew1)
         lifecycle.addObserver(cameraComponentNew2)
+
+        btnOpenSettingsActivity = findViewById(R.id.btnOpenSettingsActivity)
+        btnOpenSettingsActivity.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
